@@ -1,6 +1,4 @@
-Clothingstore = {
-    inAction = false,
-}; 
+Clothingstore = {}; 
 
 function Clothingstore:init()
     while true do 
@@ -10,7 +8,7 @@ function Clothingstore:init()
         for key, value in pairs(Config.Stores) do 
             local distance = #(playerCoords - value.coords); 
 
-            if distance <= 5.0 and not self.inAction then 
+            if distance <= 5.0 then 
                 loopInterval = 5; 
 
                 ESX.Game.Utils.DrawText3D(value.coords, 'Press [E] to open the clothing store', 0.4);
@@ -29,11 +27,12 @@ function Clothingstore:open(type)
     exports.lowkey_appearanceui:displayApp({
         components = Config.Components[type],
         shouldReset = true, 
+        tabs = { 'clothing' }, 
         callback = function(results)
             if results.success then 
-                print('Player has saved skin', results.skin)
+                print('Success', results.skin)
             else
-                print('Player cancelled, last skin: ', results.skin)
+                print('False: ', results.skin)
             end
         end
     })
