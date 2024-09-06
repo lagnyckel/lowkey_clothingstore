@@ -1,7 +1,7 @@
 Config = {}; 
 
 Config.Stores = {
-    { type = 'clothes', coords = vector3(72.50397, -1399.03, 29.37613) }
+    { type = 'clothes', coords = vector3(72.50397, -1399.03, 29.37613), price = 150 }
 }
 
 Config.Components = {
